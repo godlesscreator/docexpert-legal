@@ -4,34 +4,28 @@
       <stop offset="0%" stop-color="#1E1B4B"/>
       <stop offset="100%" stop-color="#312E81"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#F59E0B"/>
-      <stop offset="100%" stop-color="#FCD34D"/>
-    </linearGradient>
   </defs>
 
-  <!-- Background -->
+  <!-- Dark rounded background -->
   <rect width="512" height="512" rx="100" fill="url(#bg)"/>
 
-  <!-- Shield -->
-  <path d="M256 60 L430 150 L430 280 C430 380 350 440 256 480 C162 440 82 380 82 280 L82 150 Z"
-        fill="none" stroke="#818CF8" stroke-width="6"/>
+  <!-- Shield outline - thick, clear -->
+  <path d="M256 80 L410 160 L410 290 C410 380 330 430 256 460 C182 430 102 380 102 290 L102 160 Z"
+        fill="none" stroke="#818CF8" stroke-width="10" stroke-linejoin="round"/>
 
-  <!-- Scales -->
-  <!-- Beam -->
-  <line x1="256" y1="145" x2="256" y2="245" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+  <!-- Scales of justice - simplified -->
+  <!-- Vertical beam -->
+  <line x1="256" y1="155" x2="256" y2="260" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
   <!-- Horizontal bar -->
-  <line x1="185" y1="245" x2="327" y2="245" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
-  <!-- Left chain -->
-  <line x1="185" y1="245" x2="155" y2="190" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- Right chain -->
-  <line x1="327" y1="245" x2="357" y2="190" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="190" y1="260" x2="322" y2="260" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+  <!-- Left triangle bracket -->
+  <path d="M155 205 L190 260 L190 195 Z" fill="none" stroke="#F59E0B" stroke-width="6" stroke-linejoin="round"/>
+  <!-- Right triangle bracket -->
+  <path d="M357 205 L322 260 L322 195 Z" fill="none" stroke="#F59E0B" stroke-width="6" stroke-linejoin="round"/>
   <!-- Left pan -->
-  <path d="M125 180 Q155 158 185 180" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
-  <path d="M130 180 L180 180" stroke="url(#gold)" stroke-width="1.5" opacity="0.4"/>
+  <line x1="140" y1="195" x2="200" y2="195" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"/>
   <!-- Right pan -->
-  <path d="M327 180 Q357 158 387 180" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
-  <path d="M332 180 L382 180" stroke="url(#gold)" stroke-width="1.5" opacity="0.4"/>
+  <line x1="312" y1="195" x2="372" y2="195" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"/>
   <!-- Center dot -->
-  <circle cx="256" cy="245" r="7" fill="url(#gold)"/>
+  <circle cx="256" cy="260" r="10" fill="#F59E0B"/>
 </svg>
