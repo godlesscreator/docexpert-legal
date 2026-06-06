@@ -8,74 +8,39 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f13;color:#e4e4e8;overflow-x:hidden}
 .container{max-width:420px;margin:0 auto;padding:0 16px}
-
-/* Header */
 .header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);padding:32px 0 24px;text-align:center;border-bottom:1px solid #2a2a3e}
 .logo{font-size:42px;margin-bottom:12px}
 .title{font-size:22px;font-weight:700;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .subtitle{font-size:13px;color:#71717a;margin-top:6px}
-
-/* Feature Grid */
 .features{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:20px 0}
 .card{background:#1a1a28;border:1px solid #2a2a3e;border-radius:14px;padding:18px 14px;text-align:center;cursor:pointer;transition:all .2s}
-.card:hover{background:#222239;border-color:#a78bfa}
-.card:active{transform:scale(.96)}
+.card:hover,.card:active{background:#222239;border-color:#a78bfa}
 .card .icon{font-size:28px;margin-bottom:8px}
 .card .label{font-size:13px;color:#a1a1aa;font-weight:500}
-
-/* Upload Zone */
-.upload-zone{border:2px dashed #2a2a3e;border-radius:16px;padding:32px 16px;text-align:center;margin:16px 0;transition:all .2s;cursor:pointer;background:#1a1a28}
-.upload-zone:hover,.upload-zone.drag{border-color:#a78bfa;background:#1a1a28}
+.upload-zone{border:2px dashed #2a2a3e;border-radius:16px;padding:32px 16px;text-align:center;margin:16px 0;cursor:pointer;transition:all .2s;background:#1a1a28}
+.upload-zone:hover,.upload-zone.drag{border-color:#a78bfa}
 .upload-zone .icon{font-size:40px;margin-bottom:10px}
 .upload-zone .text{font-size:14px;color:#a1a1aa}
 .upload-zone .hint{font-size:12px;color:#52525b;margin-top:6px}
-
-/* Buttons */
 .btn{display:block;width:100%;padding:14px;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;text-align:center;cursor:pointer;border:none;transition:all .2s}
 .btn-primary{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;margin-bottom:10px}
-.btn-primary:hover{opacity:.9}
+.btn-primary:active{opacity:.9}
 .btn-secondary{background:#1a1a28;color:#a78bfa;border:1px solid #2a2a3e}
-.btn-secondary:hover{border-color:#a78bfa}
-
-/* Status */
+.btn-secondary:active{border-color:#a78bfa}
 .status{display:none;padding:16px;border-radius:12px;margin:16px 0;text-align:center;font-size:14px}
-.status.processing{display:block;background:#1a1a28;border:1px solid #2a2a3e;color:#60a5fa}
-.status.done{display:block;background:#1a1a28;border:1px solid #2a2a3e;color:#34d399}
-.status.error{display:block;background:#1a1a28;border:1px solid #2a2a3e;color:#f87171}
-
-/* Result Card */
-.result{display:none;margin:16px 0}
-.result .level{font-size:16px;font-weight:700;margin-bottom:8px}
-.result .summary{font-size:14px;color:#a1a1aa;line-height:1.5;margin-bottom:12px}
-.result .risks{list-style:none}
-.result .risks li{background:#1a1a28;border:1px solid #2a2a3e;border-radius:8px;padding:10px 14px;margin-bottom:6px;font-size:13px;color:#d4d4d8}
-
-/* Spinner */
-.spinner{display:inline-block;width:24px;height:24px;border:3px solid #2a2a3e;border-top-color:#a78bfa;border-radius:50%;animation:spin .8s linear infinite;margin-right:10px;vertical-align:middle}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* Footer */
-.footer{text-align:center;padding:24px 0;font-size:11px;color:#52525b;border-top:1px solid #2a2a3e;margin-top:32px}
-.footer a{color:#a78bfa;text-decoration:none}
-
-/* Scrollbar */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:#0f0f13}
-::-webkit-scrollbar-thumb{background:#2a2a3e;border-radius:4px}
-
-/* Tabs */
-.tabs{display:flex;gap:4px;background:#1a1a28;border-radius:12px;padding:4px;margin-top:20px}
-.tab{flex:1;padding:10px;border-radius:10px;font-size:14px;font-weight:500;text-align:center;cursor:pointer;border:none;background:transparent;color:#71717a;transition:all .2s}
-.tab.active{background:#2a2a3e;color:#e4e4e8}
-
-/* Info Panel */
-.info-panel{display:none;background:#1a1a28;border:1px solid #2a2a3e;border-radius:14px;padding:20px;margin:16px 0}
-.info-panel.show{display:block;animation:fadeIn .3s}
+.status.preview{background:#1a1a28;border:1px solid #2a2a3e;color:#60a5fa}
+.status.error{background:#1a1a28;border:1px solid #2a2a3e;color:#f87171}
+.info-panel{display:none;background:#1a1a28;border:1px solid #2a2a3e;border-radius:14px;padding:20px;margin:16px 0;animation:fadeIn .3s}
+.info-panel.show{display:block}
 .info-panel h3{font-size:16px;margin-bottom:12px;color:#a78bfa}
 .info-panel p{font-size:13px;color:#a1a1aa;line-height:1.6;margin-bottom:6px}
 .info-panel .close{float:right;background:none;border:none;color:#71717a;font-size:18px;cursor:pointer}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-
+.footer{text-align:center;padding:24px 0;font-size:11px;color:#52525b;border-top:1px solid #2a2a3e;margin-top:32px}
+.footer a{color:#a78bfa;text-decoration:none}
+.tabs{display:flex;gap:4px;background:#1a1a28;border-radius:12px;padding:4px;margin-top:20px}
+.tab{flex:1;padding:10px;border-radius:10px;font-size:14px;font-weight:500;text-align:center;cursor:pointer;border:none;background:transparent;color:#71717a;transition:all .2s}
+.tab.active{background:#2a2a3e;color:#e4e4e8}
 .hidden{display:none!important}
 .history-list .empty{text-align:center;padding:32px;color:#52525b;font-size:14px}
 </style>
@@ -95,13 +60,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <button class="tab" onclick="switchTab('history')">📂 История</button>
   </div>
 
-  <!-- Analyze Tab -->
   <div id="tab-analyze">
     <div class="features" id="featuresGrid">
-      <div class="card" data-feature="risks"><div class="icon">🔍</div><div class="label">Поиск рисков</div></div>
-      <div class="card" data-feature="report"><div class="icon">📊</div><div class="label">Отчёт за секунды</div></div>
-      <div class="card" data-feature="laws"><div class="icon">📜</div><div class="label">Статьи законов</div></div>
-      <div class="card" data-feature="ai"><div class="icon">🤖</div><div class="label">YandexGPT</div></div>
+      <div class="card" id="card-risks"><div class="icon">🔍</div><div class="label">Поиск рисков</div></div>
+      <div class="card" id="card-report"><div class="icon">📊</div><div class="label">Отчёт за секунды</div></div>
+      <div class="card" id="card-laws"><div class="icon">📜</div><div class="label">Статьи законов</div></div>
+      <div class="card" id="card-ai"><div class="icon">🤖</div><div class="label">YandexGPT</div></div>
     </div>
 
     <div class="info-panel" id="featureInfo">
@@ -117,19 +81,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     </div>
     <input type="file" id="fileInput" accept=".pdf,.docx" style="display:none" onchange="handleFile(this)">
 
-    <div class="status processing" id="statusProcessing">
-      <span class="spinner"></span> Анализируем документ...
-    </div>
-
+    <div class="status preview" id="statusPreview"></div>
     <div class="status error" id="statusError"></div>
 
-    <div class="result" id="resultContainer"></div>
-
-    <a href="https://t.me/DocHelper2026_bot" class="btn btn-primary">🚀 Открыть в Telegram</a>
+    <a href="https://t.me/DocHelper2026_bot" target="_blank" class="btn btn-primary" id="openTgBtn">🚀 Открыть в Telegram</a>
     <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">📎 Загрузить документ</button>
   </div>
 
-  <!-- History Tab -->
   <div id="tab-history" class="hidden">
     <div class="history-list" id="historyList">
       <div class="empty">Нет сохранённых анализов</div>
@@ -146,70 +104,67 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-let tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.ready();
-  tg.setHeaderColor('#1a1a2e');
-  tg.setBackgroundColor('#0f0f13');
-}
+(function() {
+  var tg = window.Telegram ? window.Telegram.WebApp : null;
+  if (tg) {
+    tg.ready();
+    try { tg.setHeaderColor('#1a1a2e'); } catch(e) {}
+    try { tg.setBackgroundColor('#0f0f13'); } catch(e) {}
+  }
+
+  // Кнопка "Открыть в Telegram"
+  var openBtn = document.getElementById('openTgBtn');
+  if (openBtn) {
+    openBtn.addEventListener('click', function(e) {
+      if (tg) {
+        e.preventDefault();
+        tg.openTelegramLink('https://t.me/DocHelper2026_bot');
+      }
+    });
+  }
+
+  // Кликабельные карточки
+  var cardMap = {'card-risks':'risks','card-report':'report','card-laws':'laws','card-ai':'ai'};
+  for (var cid in cardMap) {
+    (function(feature) {
+      var el = document.getElementById(cid);
+      if (el) el.addEventListener('click', function() { window.showFeature(feature); });
+    })(cardMap[cid]);
+  }
+
+  // Drag & drop
+  var zone = document.getElementById('dropZone');
+  if (zone) {
+    zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('drag'); });
+    zone.addEventListener('dragleave', function() { zone.classList.remove('drag'); });
+    zone.addEventListener('drop', function(e) {
+      e.preventDefault(); zone.classList.remove('drag');
+      if (e.dataTransfer.files[0]) {
+        document.getElementById('fileInput').files = e.dataTransfer.files;
+        window.handleFile(document.getElementById('fileInput'));
+      }
+    });
+  }
+
+  // Init history
+  window.renderHistory();
+})();
 
 function switchTab(tab) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('[id^="tab-"]').forEach(t => t.classList.add('hidden'));
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('[id^="tab-"]').forEach(function(t) { t.classList.add('hidden'); });
   document.getElementById('tab-'+tab).classList.remove('hidden');
-  document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
+  document.querySelector('[onclick*="'+tab+'"]').classList.add('active');
 }
 
 function showFeature(id) {
-  const info = {
-    risks: {
-      title: '🔍 Поиск рисков',
-      html: `
-        <p>DocExpert AI анализирует документ и находит:</p>
-        <p>⚠️ Завышенные штрафы и пени</p>
-        <p>⚠️ Односторонние права и скрытые комиссии</p>
-        <p>⚠️ Отсутствие сроков и размытые формулировки</p>
-        <p>⚠️ Нарушения ТК РФ, ГК РФ, 152-ФЗ</p>
-        <p style="color:#60a5fa;margin-top:8px">Каждый риск — с конкретным пунктом договора и статьёй закона</p>
-      `
-    },
-    report: {
-      title: '📊 Отчёт за секунды',
-      html: `
-        <p>📋 Определение типа документа</p>
-        <p>⚡ Уровень риска: 🟢 🟡 🔴</p>
-        <p>📝 Краткое резюме простым языком</p>
-        <p>⚠️ Список проблем с приоритетом</p>
-        <p>✅ Что в порядке (только реальные плюсы)</p>
-        <p>💡 Конкретная рекомендация</p>
-        <p style="color:#60a5fa;margin-top:8px">Время анализа: 15–60 секунд</p>
-      `
-    },
-    laws: {
-      title: '📜 Статьи законов',
-      html: `
-        <p>Анализ опирается на актуальное законодательство РФ (июнь 2026):</p>
-        <p>• Трудовой кодекс РФ (ТК РФ)</p>
-        <p>• Гражданский кодекс РФ (ГК РФ)</p>
-        <p>• 152-ФЗ «О персональных данных»</p>
-        <p>• Закон «О защите прав потребителей»</p>
-        <p>• КоАП РФ</p>
-        <p style="color:#a1a1aa;margin-top:8px">Для каждого риска бот указывает конкретную статью</p>
-      `
-    },
-    ai: {
-      title: '🤖 YandexGPT',
-      html: `
-        <p>Сервис работает на базе YandexGPT 32k — большой языковой модели Яндекса.</p>
-        <p>• Специализированные юридические промпты</p>
-        <p>• Двойная проверка результатов</p>
-        <p>• Сервера на территории РФ (152-ФЗ)</p>
-        <p>• Текст удаляется сразу после анализа</p>
-        <p style="color:#60a5fa;margin-top:8px">6 типов промптов под разные документы</p>
-      `
-    }
+  var info = {
+    risks:{title:'🔍 Поиск рисков',html:'<p>DocExpert AI анализирует документ и находит:</p><p>⚠️ Завышенные штрафы и пени</p><p>⚠️ Односторонние права и скрытые комиссии</p><p>⚠️ Отсутствие сроков и размытые формулировки</p><p>⚠️ Нарушения ТК РФ, ГК РФ, 152-ФЗ</p><p style="color:#60a5fa;margin-top:8px">Каждый риск — с конкретным пунктом договора и статьёй закона</p>'},
+    report:{title:'📊 Отчёт за секунды',html:'<p>📋 Определение типа документа</p><p>⚡ Уровень риска: 🟢 🟡 🔴</p><p>📝 Краткое резюме простым языком</p><p>⚠️ Список проблем с приоритетом</p><p>✅ Что в порядке (только реальные плюсы)</p><p>💡 Конкретная рекомендация</p><p style="color:#60a5fa;margin-top:8px">Время анализа: 15–60 секунд</p>'},
+    laws:{title:'📜 Статьи законов',html:'<p>Анализ опирается на актуальное законодательство РФ (июнь 2026):</p><p>• Трудовой кодекс РФ (ТК РФ)</p><p>• Гражданский кодекс РФ (ГК РФ)</p><p>• 152-ФЗ «О персональных данных»</p><p>• Закон «О защите прав потребителей»</p><p>• КоАП РФ</p><p style="color:#a1a1aa;margin-top:8px">Для каждого риска бот указывает конкретную статью</p>'},
+    ai:{title:'🤖 YandexGPT',html:'<p>Сервис работает на базе YandexGPT 32k — большой языковой модели Яндекса.</p><p>• Специализированные юридические промпты</p><p>• Двойная проверка результатов</p><p>• Сервера на территории РФ (152-ФЗ)</p><p>• Текст удаляется сразу после анализа</p><p style="color:#60a5fa;margin-top:8px">6 типов промптов под разные документы</p>'}
   };
-  const data = info[id];
+  var data = info[id];
   if (!data) return;
   document.getElementById('featureTitle').textContent = data.title;
   document.getElementById('featureContent').innerHTML = data.html;
@@ -217,125 +172,55 @@ function showFeature(id) {
 }
 
 function handleFile(input) {
-  const file = input.files[0];
+  var file = input.files[0];
   if (!file) return;
-  
-  const allowed = ['.pdf','.docx','.doc'];
-  const ext = '.' + file.name.split('.').pop().toLowerCase();
-  if (!allowed.includes(ext)) {
-    showError('Поддерживаются только PDF и DOCX файлы');
-    return;
-  }
-  if (file.size > 20*1024*1024) {
-    showError('Файл больше 20 МБ');
-    return;
-  }
+  var ext = '.' + file.name.split('.').pop().toLowerCase();
+  if (['.pdf','.docx','.doc'].indexOf(ext) === -1) { showError('Поддерживаются только PDF и DOCX'); return; }
+  if (file.size > 20*1024*1024) { showError('Файл больше 20 МБ'); return; }
 
-  // Simulate processing for the Mini App demo
-  document.getElementById('statusProcessing').style.display = 'block';
+  // Без ложного спиннера — сразу показываем что делать
   document.getElementById('statusError').style.display = 'none';
-  document.getElementById('resultContainer').style.display = 'none';
+  var prev = document.getElementById('statusPreview');
+  prev.style.display = 'block';
+  prev.innerHTML = '📄 <b>'+escapeHtml(file.name)+'</b><br><span style="color:#a1a1aa;font-size:13px">Файл загружен. Отправьте его в Telegram бота для анализа.</span>';
 
-  // Read file and show preview
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    setTimeout(() => {
-      document.getElementById('statusProcessing').style.display = 'none';
-      
-      // Mock result for demo
-      let html = `
-        <div class="result" style="display:block">
-          <div class="level">⚡ Уровень риска: 🔴</div>
-          <div class="summary">
-            📋 <b>${escapeHtml(file.name)}</b><br>
-            📝 Для полного анализа с детальным отчётом и ссылками на статьи законов —
-            отправьте документ в нашего Telegram бота.
-          </div>
-          <ul class="risks">
-            <li>⚠️ Документ требует проверки профессиональным ИИ-анализом</li>
-            <li>💡 Отправьте файл в @DocHelper2026_bot для полного отчёта</li>
-          </ul>
-        </div>`;
-      document.getElementById('resultContainer').innerHTML = html;
-      document.getElementById('resultContainer').style.display = 'block';
-      
-      // Save to history
-      saveToHistory(file.name, '🔴', new Date().toISOString());
-    }, 1500);
-  };
-  reader.readAsDataURL(file);
+  saveToHistory(file.name, '⏳', new Date().toISOString());
 }
 
 function showError(msg) {
-  const el = document.getElementById('statusError');
+  var el = document.getElementById('statusError');
   el.textContent = '❌ ' + msg;
   el.style.display = 'block';
-  document.getElementById('statusProcessing').style.display = 'none';
+  document.getElementById('statusPreview').style.display = 'none';
 }
 
 function saveToHistory(filename, level, date) {
-  let history = JSON.parse(localStorage.getItem('docexpert_history') || '[]');
-  history.unshift({filename, level, date, id: Date.now()});
-  if (history.length > 20) history = history.slice(0, 20);
-  localStorage.setItem('docexpert_history', JSON.stringify(history));
+  var history = [];
+  try { history = JSON.parse(localStorage.getItem('docexpert_history')||'[]'); } catch(e) {}
+  history.unshift({filename:filename, level:level, date:date, id:Date.now()});
+  if (history.length > 20) history = history.slice(0,20);
+  try { localStorage.setItem('docexpert_history', JSON.stringify(history)); } catch(e) {}
   renderHistory();
 }
 
 function renderHistory() {
-  const history = JSON.parse(localStorage.getItem('docexpert_history') || '[]');
-  const el = document.getElementById('historyList');
-  if (history.length === 0) {
-    el.innerHTML = '<div class="empty">Нет сохранённых анализов</div>';
-    return;
-  }
-  el.innerHTML = history.map(h => `
-    <div class="card" style="text-align:left;margin-bottom:8px">
-      <div style="font-weight:600;margin-bottom:4px">📄 ${escapeHtml(h.filename)}</div>
-      <div style="font-size:12px;color:#71717a">${new Date(h.date).toLocaleString('ru')} · Уровень: ${h.level}</div>
-      <div style="font-size:12px;color:#52525b;margin-top:4px">Полный отчёт в @DocHelper2026_bot</div>
-    </div>
-  `).join('');
+  var history = [];
+  try { history = JSON.parse(localStorage.getItem('docexpert_history')||'[]'); } catch(e) {}
+  var el = document.getElementById('historyList');
+  if (history.length === 0) { el.innerHTML = '<div class="empty">Нет сохранённых анализов</div>'; return; }
+  el.innerHTML = history.map(function(h) {
+    return '<div class="card" style="text-align:left;margin-bottom:8px;cursor:default">'+
+      '<div style="font-weight:600;margin-bottom:4px">📄 '+escapeHtml(h.filename)+'</div>'+
+      '<div style="font-size:12px;color:#71717a">'+new Date(h.date).toLocaleString('ru')+' · '+h.level+'</div>'+
+      '<div style="font-size:12px;color:#52525b;margin-top:4px">Полный отчёт в @DocHelper2026_bot</div>'+
+      '</div>';
+  }).join('');
 }
 
 function escapeHtml(text) {
-  const d = document.createElement('div');
+  var d = document.createElement('div');
   d.textContent = text;
   return d.innerHTML;
-}
-
-// Drag & drop
-const zone = document.getElementById('dropZone');
-zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
-zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
-zone.addEventListener('drop', e => {
-  e.preventDefault();
-  zone.classList.remove('drag');
-  const file = e.dataTransfer.files[0];
-  if (file) {
-    document.getElementById('fileInput').files = e.dataTransfer.files;
-    handleFile(document.getElementById('fileInput'));
-  }
-});
-
-// Init
-document.addEventListener('DOMContentLoaded', function() {
-  // Feature card clicks
-  document.querySelectorAll('.card[data-feature]').forEach(function(card) {
-    card.addEventListener('click', function() {
-      showFeature(this.getAttribute('data-feature'));
-    });
-  });
-  renderHistory();
-});
-
-// Fallback: если DOMContentLoaded уже сработал
-if (document.readyState !== 'loading') {
-  document.querySelectorAll('.card[data-feature]').forEach(function(card) {
-    card.addEventListener('click', function() {
-      showFeature(this.getAttribute('data-feature'));
-    });
-  });
-  renderHistory();
 }
 </script>
 </body>
