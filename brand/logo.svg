@@ -1,63 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="shield" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1E1B4B"/>
-      <stop offset="100%" style="stop-color:#312E81"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#312E81"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F59E0B"/>
-      <stop offset="100%" style="stop-color:#FCD34D"/>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366F1"/>
-      <stop offset="100%" style="stop-color:#818CF8"/>
-    </linearGradient>
-    <!-- Glow -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
   </defs>
 
-  <!-- Background circle -->
-  <circle cx="256" cy="256" r="248" fill="url(#shield)" stroke="#6366F1" stroke-width="2" opacity="0.3"/>
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="url(#bg)"/>
 
-  <!-- Shield shape -->
-  <path d="M256 60 L420 140 L420 260 C420 360 350 420 256 460 C162 420 92 360 92 260 L92 140 Z"
-        fill="url(#shield)" stroke="url(#accent)" stroke-width="4"/>
+  <!-- Shield -->
+  <path d="M256 60 L430 150 L430 280 C430 380 350 440 256 480 C162 440 82 380 82 280 L82 150 Z"
+        fill="none" stroke="#818CF8" stroke-width="6"/>
 
-  <!-- Shield inner border -->
-  <path d="M256 100 L380 160 L380 260 C380 340 320 390 256 420 C192 390 132 340 132 260 L132 160 Z"
-        fill="none" stroke="rgba(99,102,241,0.2)" stroke-width="2"/>
-
-  <!-- Scales beam -->
-  <line x1="256" y1="160" x2="256" y2="240" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
-  <!-- Triangle base -->
-  <line x1="200" y1="240" x2="312" y2="240" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- Left scale chain -->
-  <line x1="200" y1="240" x2="170" y2="200" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Right scale chain -->
-  <line x1="312" y1="240" x2="342" y2="200" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
-
+  <!-- Scales -->
+  <!-- Beam -->
+  <line x1="256" y1="145" x2="256" y2="245" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+  <!-- Horizontal bar -->
+  <line x1="185" y1="245" x2="327" y2="245" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+  <!-- Left chain -->
+  <line x1="185" y1="245" x2="155" y2="190" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Right chain -->
+  <line x1="327" y1="245" x2="357" y2="190" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
   <!-- Left pan -->
-  <path d="M140 190 Q170 170 200 190" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="140" y1="190" x2="200" y2="190" stroke="url(#gold)" stroke-width="2" opacity="0.5"/>
-
+  <path d="M125 180 Q155 158 185 180" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M130 180 L180 180" stroke="url(#gold)" stroke-width="1.5" opacity="0.4"/>
   <!-- Right pan -->
-  <path d="M312 190 Q342 170 372 190" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="312" y1="190" x2="372" y2="190" stroke="url(#gold)" stroke-width="2" opacity="0.5"/>
-
-  <!-- Center circle on beam -->
-  <circle cx="256" cy="240" r="6" fill="url(#gold)" filter="url(#glow)"/>
-
-  <!-- Document icon overlay (bottom of shield) -->
-  <g transform="translate(210, 280)" opacity="0.85">
-    <rect x="0" y="0" width="92" height="110" rx="6" fill="#1E1B4B" stroke="rgba(99,102,241,0.4)" stroke-width="2"/>
-    <!-- Text lines on document -->
-    <rect x="12" y="18" width="68" height="8" rx="4" fill="rgba(129,140,248,0.3)"/>
-    <rect x="12" y="34" width="52" height="6" rx="3" fill="rgba(129,140,248,0.2)"/>
-    <rect x="12" y="48" width="60" height="6" rx="3" fill="rgba(129,140,248,0.2)"/>
-    <rect x="12" y="62" width="40" height="6" rx="3" fill="rgba(129,140,248,0.15)"/>
-  </g>
+  <path d="M327 180 Q357 158 387 180" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M332 180 L382 180" stroke="url(#gold)" stroke-width="1.5" opacity="0.4"/>
+  <!-- Center dot -->
+  <circle cx="256" cy="245" r="7" fill="url(#gold)"/>
 </svg>
