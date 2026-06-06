@@ -97,11 +97,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
   <!-- Analyze Tab -->
   <div id="tab-analyze">
-    <div class="features">
-      <div class="card" onclick="showFeature('risks')"><div class="icon">🔍</div><div class="label">Поиск рисков</div></div>
-      <div class="card" onclick="showFeature('report')"><div class="icon">📊</div><div class="label">Отчёт за секунды</div></div>
-      <div class="card" onclick="showFeature('laws')"><div class="icon">📜</div><div class="label">Статьи законов</div></div>
-      <div class="card" onclick="showFeature('ai')"><div class="icon">🤖</div><div class="label">YandexGPT</div></div>
+    <div class="features" id="featuresGrid">
+      <div class="card" data-feature="risks"><div class="icon">🔍</div><div class="label">Поиск рисков</div></div>
+      <div class="card" data-feature="report"><div class="icon">📊</div><div class="label">Отчёт за секунды</div></div>
+      <div class="card" data-feature="laws"><div class="icon">📜</div><div class="label">Статьи законов</div></div>
+      <div class="card" data-feature="ai"><div class="icon">🤖</div><div class="label">YandexGPT</div></div>
     </div>
 
     <div class="info-panel" id="featureInfo">
@@ -318,7 +318,25 @@ zone.addEventListener('drop', e => {
 });
 
 // Init
-renderHistory();
+document.addEventListener('DOMContentLoaded', function() {
+  // Feature card clicks
+  document.querySelectorAll('.card[data-feature]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      showFeature(this.getAttribute('data-feature'));
+    });
+  });
+  renderHistory();
+});
+
+// Fallback: если DOMContentLoaded уже сработал
+if (document.readyState !== 'loading') {
+  document.querySelectorAll('.card[data-feature]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      showFeature(this.getAttribute('data-feature'));
+    });
+  });
+  renderHistory();
+}
 </script>
 </body>
 </html>
