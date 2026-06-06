@@ -17,7 +17,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
 /* Feature Grid */
 .features{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:20px 0}
-.card{background:#1a1a28;border:1px solid #2a2a3e;border-radius:14px;padding:18px 14px;text-align:center}
+.card{background:#1a1a28;border:1px solid #2a2a3e;border-radius:14px;padding:18px 14px;text-align:center;cursor:pointer;transition:all .2s}
+.card:hover{background:#222239;border-color:#a78bfa}
+.card:active{transform:scale(.96)}
 .card .icon{font-size:28px;margin-bottom:8px}
 .card .label{font-size:13px;color:#a1a1aa;font-weight:500}
 
@@ -66,6 +68,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .tab{flex:1;padding:10px;border-radius:10px;font-size:14px;font-weight:500;text-align:center;cursor:pointer;border:none;background:transparent;color:#71717a;transition:all .2s}
 .tab.active{background:#2a2a3e;color:#e4e4e8}
 
+/* Info Panel */
+.info-panel{display:none;background:#1a1a28;border:1px solid #2a2a3e;border-radius:14px;padding:20px;margin:16px 0}
+.info-panel.show{display:block;animation:fadeIn .3s}
+.info-panel h3{font-size:16px;margin-bottom:12px;color:#a78bfa}
+.info-panel p{font-size:13px;color:#a1a1aa;line-height:1.6;margin-bottom:6px}
+.info-panel .close{float:right;background:none;border:none;color:#71717a;font-size:18px;cursor:pointer}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
 .hidden{display:none!important}
 .history-list .empty{text-align:center;padding:32px;color:#52525b;font-size:14px}
 </style>
@@ -88,10 +98,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <!-- Analyze Tab -->
   <div id="tab-analyze">
     <div class="features">
-      <div class="card"><div class="icon">🔍</div><div class="label">Поиск рисков</div></div>
-      <div class="card"><div class="icon">📊</div><div class="label">Отчёт за секунды</div></div>
-      <div class="card"><div class="icon">📜</div><div class="label">Статьи законов</div></div>
-      <div class="card"><div class="icon">🤖</div><div class="label">YandexGPT</div></div>
+      <div class="card" onclick="showFeature('risks')"><div class="icon">🔍</div><div class="label">Поиск рисков</div></div>
+      <div class="card" onclick="showFeature('report')"><div class="icon">📊</div><div class="label">Отчёт за секунды</div></div>
+      <div class="card" onclick="showFeature('laws')"><div class="icon">📜</div><div class="label">Статьи законов</div></div>
+      <div class="card" onclick="showFeature('ai')"><div class="icon">🤖</div><div class="label">YandexGPT</div></div>
+    </div>
+
+    <div class="info-panel" id="featureInfo">
+      <button class="close" onclick="document.getElementById('featureInfo').classList.remove('show')">✕</button>
+      <h3 id="featureTitle"></h3>
+      <div id="featureContent"></div>
     </div>
 
     <div class="upload-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
@@ -142,6 +158,62 @@ function switchTab(tab) {
   document.querySelectorAll('[id^="tab-"]').forEach(t => t.classList.add('hidden'));
   document.getElementById('tab-'+tab).classList.remove('hidden');
   document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
+}
+
+function showFeature(id) {
+  const info = {
+    risks: {
+      title: '🔍 Поиск рисков',
+      html: `
+        <p>DocExpert AI анализирует документ и находит:</p>
+        <p>⚠️ Завышенные штрафы и пени</p>
+        <p>⚠️ Односторонние права и скрытые комиссии</p>
+        <p>⚠️ Отсутствие сроков и размытые формулировки</p>
+        <p>⚠️ Нарушения ТК РФ, ГК РФ, 152-ФЗ</p>
+        <p style="color:#60a5fa;margin-top:8px">Каждый риск — с конкретным пунктом договора и статьёй закона</p>
+      `
+    },
+    report: {
+      title: '📊 Отчёт за секунды',
+      html: `
+        <p>📋 Определение типа документа</p>
+        <p>⚡ Уровень риска: 🟢 🟡 🔴</p>
+        <p>📝 Краткое резюме простым языком</p>
+        <p>⚠️ Список проблем с приоритетом</p>
+        <p>✅ Что в порядке (только реальные плюсы)</p>
+        <p>💡 Конкретная рекомендация</p>
+        <p style="color:#60a5fa;margin-top:8px">Время анализа: 15–60 секунд</p>
+      `
+    },
+    laws: {
+      title: '📜 Статьи законов',
+      html: `
+        <p>Анализ опирается на актуальное законодательство РФ (июнь 2026):</p>
+        <p>• Трудовой кодекс РФ (ТК РФ)</p>
+        <p>• Гражданский кодекс РФ (ГК РФ)</p>
+        <p>• 152-ФЗ «О персональных данных»</p>
+        <p>• Закон «О защите прав потребителей»</p>
+        <p>• КоАП РФ</p>
+        <p style="color:#a1a1aa;margin-top:8px">Для каждого риска бот указывает конкретную статью</p>
+      `
+    },
+    ai: {
+      title: '🤖 YandexGPT',
+      html: `
+        <p>Сервис работает на базе YandexGPT 32k — большой языковой модели Яндекса.</p>
+        <p>• Специализированные юридические промпты</p>
+        <p>• Двойная проверка результатов</p>
+        <p>• Сервера на территории РФ (152-ФЗ)</p>
+        <p>• Текст удаляется сразу после анализа</p>
+        <p style="color:#60a5fa;margin-top:8px">6 типов промптов под разные документы</p>
+      `
+    }
+  };
+  const data = info[id];
+  if (!data) return;
+  document.getElementById('featureTitle').textContent = data.title;
+  document.getElementById('featureContent').innerHTML = data.html;
+  document.getElementById('featureInfo').classList.add('show');
 }
 
 function handleFile(input) {
